@@ -1,0 +1,16 @@
+services:
+  qgis-server:
+    image: qgis/qgis-server:latest
+    container_name: qgis-server
+    environment:
+      - QGIS_SERVER_LOG_LEVEL=0
+      - QGIS_SERVER_LOG_STDERR=1
+    volumes:
+      - ./qgis:/data
+    ports:
+      - "8080:80"
+    networks:
+      - qgisnet
+
+networks:
+  qgisnet:
